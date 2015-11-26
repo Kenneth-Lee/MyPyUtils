@@ -69,3 +69,29 @@ class CsParser(MyParser):
         else:
             self.ignoreline(2, line)
 
+    def get_cpu_xy(self, cpu):
+	xy=[[], []]
+	prev=0
+	cur=0
+	for item in self.items:
+		if int(item[1])==cpu:
+			xy[0].append(float(item[3]))
+			if item[4]=='sched_switch':
+				next_pid = int(re.findall("next_pid=(\d+)", item[5])[0])
+
+				if next_pid==0:
+					cur=0
+				else:
+					cur=10
+				prev=cur
+			elif item[4]=='irq_handler_entry':
+				cur = 4
+			elif item[4]=='irq_handler_exit':
+				cur = prev
+			elif item[4]=='softirq_entry':
+				cur = 6
+			elif item[4]=='softirq_exit':
+				cur = prev
+
+			xy[1].append(cpu*20+cur)
+	return xy
