@@ -1,0 +1,108 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 56846/56846   #P:24
+#
+#                              _-----=> irqs-off
+#                             / _----=> need-resched
+#                            | / _---=> hardirq/softirq
+#                            || / _--=> preempt-depth
+#                            ||| /     delay
+#           TASK-PID   CPU#  ||||    TIMESTAMP  FUNCTION
+#              | |       |   ||||       |         |
+          <idle>-0     [005] d... 139464.058296: sched_switch: prev_comm=swapper/5 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=rcuos/0 next_pid=9 next_prio=120
+           <...>-9     [005] d... 139464.058304: sched_switch: prev_comm=rcuos/0 prev_pid=9 prev_prio=120 prev_state=S ==> next_comm=swapper/5 next_pid=0 next_prio=120
+          <idle>-0     [001] d... 139464.058332: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=rcu_sched next_pid=7 next_prio=120
+       rcu_sched-7     [001] d.h. 139464.058338: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+            sshd-11455 [003] d... 139464.058342: sched_switch: prev_comm=sshd prev_pid=11455 prev_prio=120 prev_state=S ==> next_comm=swapper/3 next_pid=0 next_prio=120
+       rcu_sched-7     [001] d.h. 139464.058348: irq_handler_exit: irq=19 ret=handled
+       rcu_sched-7     [001] d... 139464.058354: sched_switch: prev_comm=rcu_sched prev_pid=7 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+            bash-26550 [000] d... 139464.058519: sched_switch: prev_comm=bash prev_pid=26550 prev_prio=120 prev_state=R ==> next_comm=kworker/0:2 next_pid=26076 next_prio=120
+     kworker/0:2-26076 [000] d... 139464.058527: sched_switch: prev_comm=kworker/0:2 prev_pid=26076 prev_prio=120 prev_state=S ==> next_comm=bash next_pid=26550 next_prio=120
+          <idle>-0     [001] d.h. 139464.058543: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+            bash-26550 [000] d... 139464.058545: sched_switch: prev_comm=bash prev_pid=26550 prev_prio=120 prev_state=S ==> next_comm=swapper/0 next_pid=0 next_prio=120
+          <idle>-0     [001] dNh. 139464.058557: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.058562: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:4 next_pid=25413 next_prio=120
+          <idle>-0     [005] d... 139464.058563: sched_switch: prev_comm=swapper/5 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=screen next_pid=1853 next_prio=120
+   kworker/u48:4-25413 [001] d... 139464.058576: sched_switch: prev_comm=kworker/u48:4 prev_pid=25413 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          screen-1853  [005] d... 139464.058612: sched_switch: prev_comm=screen prev_pid=1853 prev_prio=120 prev_state=R ==> next_comm=kworker/5:0 next_pid=26560 next_prio=120
+           <...>-26560 [005] d... 139464.058622: sched_switch: prev_comm=kworker/5:0 prev_pid=26560 prev_prio=120 prev_state=S ==> next_comm=screen next_pid=1853 next_prio=120
+          screen-1853  [005] d... 139464.058642: sched_switch: prev_comm=screen prev_pid=1853 prev_prio=120 prev_state=S ==> next_comm=swapper/5 next_pid=0 next_prio=120
+          <idle>-0     [003] d... 139464.058649: sched_switch: prev_comm=swapper/3 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=sshd next_pid=11455 next_prio=120
+            sshd-11455 [003] d... 139464.058697: sched_switch: prev_comm=sshd prev_pid=11455 prev_prio=120 prev_state=S ==> next_comm=swapper/3 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.060238: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] dNh. 139464.060252: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.060257: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:4 next_pid=25413 next_prio=120
+   kworker/u48:4-25413 [001] d... 139464.060312: sched_switch: prev_comm=kworker/u48:4 prev_pid=25413 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.060315: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] d.h. 139464.060321: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d.h. 139464.060393: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] dNh. 139464.060401: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.060403: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:4 next_pid=25413 next_prio=120
+   kworker/u48:4-25413 [001] d.s. 139464.060423: softirq_raise: vec=6 [action=TASKLET]
+   kworker/u48:4-25413 [001] ..s1 139464.060424: softirq_entry: vec=6 [action=TASKLET]
+   kworker/u48:4-25413 [001] ..s1 139464.060426: softirq_exit: vec=6 [action=TASKLET]
+   kworker/u48:4-25413 [001] d... 139464.060429: sched_switch: prev_comm=kworker/u48:4 prev_pid=25413 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.060439: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] d.h. 139464.060447: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d.h. 139464.061444: softirq_raise: vec=1 [action=TIMER]
+          <idle>-0     [001] d.h. 139464.061445: softirq_raise: vec=9 [action=RCU]
+          <idle>-0     [001] d.h. 139464.061447: softirq_raise: vec=7 [action=SCHED]
+          <idle>-0     [001] ..s. 139464.061454: softirq_entry: vec=1 [action=TIMER]
+          <idle>-0     [001] .Ns. 139464.061461: softirq_exit: vec=1 [action=TIMER]
+          <idle>-0     [001] .Ns. 139464.061462: softirq_entry: vec=7 [action=SCHED]
+          <idle>-0     [001] .Ns. 139464.061468: softirq_exit: vec=7 [action=SCHED]
+          <idle>-0     [001] .Ns. 139464.061469: softirq_entry: vec=9 [action=RCU]
+          <idle>-0     [001] .Ns. 139464.061470: softirq_exit: vec=9 [action=RCU]
+          <idle>-0     [001] d... 139464.061474: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=rcu_sched next_pid=7 next_prio=120
+       rcu_sched-7     [001] d... 139464.061487: sched_switch: prev_comm=rcu_sched prev_pid=7 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.061489: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] d.h. 139464.061500: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [005] d... 139464.061513: sched_switch: prev_comm=swapper/5 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=rcuos/0 next_pid=9 next_prio=120
+           <...>-9     [005] d... 139464.061525: sched_switch: prev_comm=rcuos/0 prev_pid=9 prev_prio=120 prev_state=S ==> next_comm=swapper/5 next_pid=0 next_prio=120
+          <idle>-0     [001] d... 139464.061525: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=rcu_sched next_pid=7 next_prio=120
+       rcu_sched-7     [001] d... 139464.061528: sched_switch: prev_comm=rcu_sched prev_pid=7 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.062431: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] dNh. 139464.062445: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.062451: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:4 next_pid=25413 next_prio=120
+   kworker/u48:4-25413 [001] d... 139464.062473: sched_switch: prev_comm=kworker/u48:4 prev_pid=25413 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [002] d... 139464.062492: sched_switch: prev_comm=swapper/2 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:1 next_pid=26443 next_prio=120
+           <...>-26443 [002] d... 139464.062499: sched_switch: prev_comm=kworker/u48:1 prev_pid=26443 prev_prio=120 prev_state=S ==> next_comm=swapper/2 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.062543: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] d.h. 139464.062552: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d.h. 139464.062588: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] dNh. 139464.062594: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.062596: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:1 next_pid=26443 next_prio=120
+           <...>-26443 [001] d... 139464.062602: sched_switch: prev_comm=kworker/u48:1 prev_pid=26443 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.063586: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] dNh. 139464.063593: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.063596: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:1 next_pid=26443 next_prio=120
+           <...>-26443 [001] d... 139464.063603: sched_switch: prev_comm=kworker/u48:1 prev_pid=26443 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.063631: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] d.h. 139464.063637: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [005] d... 139464.063646: sched_switch: prev_comm=swapper/5 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=java next_pid=12833 next_prio=120
+           <...>-12833 [005] d... 139464.063662: sched_switch: prev_comm=java prev_pid=12833 prev_prio=120 prev_state=S ==> next_comm=swapper/5 next_pid=0 next_prio=120
+          <idle>-0     [000] d... 139464.063676: sched_switch: prev_comm=swapper/0 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=java next_pid=7044 next_prio=120
+           <...>-7044  [000] d... 139464.063692: sched_switch: prev_comm=java prev_pid=7044 prev_prio=120 prev_state=S ==> next_comm=swapper/0 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.064192: irq_handler_entry: irq=19 name=xhci-hcd:usb1
+          <idle>-0     [001] dNh. 139464.064198: irq_handler_exit: irq=19 ret=handled
+          <idle>-0     [001] d... 139464.064200: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=kworker/u48:1 next_pid=26443 next_prio=120
+           <...>-26443 [001] d... 139464.064225: sched_switch: prev_comm=kworker/u48:1 prev_pid=26443 prev_prio=120 prev_state=S ==> next_comm=swapper/1 next_pid=0 next_prio=120
+          <idle>-0     [001] d.h. 139464.065447: softirq_raise: vec=1 [action=TIMER]
+          <idle>-0     [008] d.h. 139464.065448: softirq_raise: vec=1 [action=TIMER]
+          <idle>-0     [001] d.h. 139464.065449: softirq_raise: vec=9 [action=RCU]
+          <idle>-0     [001] d.h. 139464.065450: softirq_raise: vec=7 [action=SCHED]
+          <idle>-0     [008] d.h. 139464.065451: softirq_raise: vec=9 [action=RCU]
+          <idle>-0     [001] ..s. 139464.065452: softirq_entry: vec=1 [action=TIMER]
+          <idle>-0     [008] d.h. 139464.065453: softirq_raise: vec=7 [action=SCHED]
+          <idle>-0     [008] ..s. 139464.065455: softirq_entry: vec=1 [action=TIMER]
+          <idle>-0     [001] .Ns. 139464.065456: softirq_exit: vec=1 [action=TIMER]
+          <idle>-0     [001] .Ns. 139464.065457: softirq_entry: vec=7 [action=SCHED]
+          <idle>-0     [008] ..s. 139464.065458: softirq_exit: vec=1 [action=TIMER]
+          <idle>-0     [008] ..s. 139464.065458: softirq_entry: vec=7 [action=SCHED]
+          <idle>-0     [001] .Ns. 139464.065463: softirq_exit: vec=7 [action=SCHED]
+          <idle>-0     [001] .Ns. 139464.065463: softirq_entry: vec=9 [action=RCU]
+          <idle>-0     [001] .Ns. 139464.065465: softirq_exit: vec=9 [action=RCU]
+          <idle>-0     [008] ..s. 139464.065468: softirq_exit: vec=7 [action=SCHED]
+          <idle>-0     [008] ..s. 139464.065468: softirq_entry: vec=9 [action=RCU]
+          <idle>-0     [001] d... 139464.065469: sched_switch: prev_comm=swapper/1 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=rcu_sched next_pid=7 next_prio=120
+          <idle>-0     [008] ..s. 139464.065470: softirq_exit: vec=9 [action=RCU]

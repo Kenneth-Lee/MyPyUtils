@@ -18,13 +18,15 @@ def plot_data(data, name=None, filename=None):
     plt.xlabel("sequence")
     if name:
         plt.ylabel(name)
-    plt.title(name + "sequence")
     plt.plot(np.arange(0, len(data), 1), data)
-    plt.axhline(mean(data), 0, len(data), color='r')
+    ave=mean(data)
+    plt.axhline(ave, 0, len(data), color='r')
+    plt.title(name + " sequence (max=%f, min=%f, ave=%f)"%(max(data), min(data), ave))
 
     plt_show(filename)
 
 
+cmap = ['w', 'r', 'y', 'g']
 def plot_cs(cp, filename=None):
     "cp is a CsParser Object"
 
@@ -34,12 +36,20 @@ def plot_cs(cp, filename=None):
     if not len(cp.cpus):
         return
 
-    plt.xlabel("time(ms)")
+    plt.xlabel("time(ns)")
     plt.ylabel("cpu")
     plt.title("context switch chart")
 
+    axd=cp.get_axis()
+    plt.axis(axd)
+
     for cpu in cp.cpus:
         xy=cp.get_cpu_xy(cpu)
-        plt.plot(xy[0], xy[1])
+        lx, ly = 0, 0
+        for x, y in xy:
+            if lx != 0:
+                plt.axhspan(cpu*3+0.1, (cpu+1)*3-0.1, xmin=float(lx)/float(axd[1]), xmax=float(x)/float(axd[1]), 
+                        facecolor=cmap[ly], alpha=0.5)
+            lx, ly = x, y
 
     plt_show(filename)
