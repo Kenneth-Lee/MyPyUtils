@@ -10,7 +10,7 @@ def sublist(list1, list2):
         if isinstance(e, list):
             list3.append(sublist(e, list2[i]))
         else:
-            list3.append(long(e) - long(list2[i]))
+            list3.append(int(e) - int(list2[i]))
         i+=1
 
     return list3
@@ -27,14 +27,11 @@ class SchedStatParser:
             for line in lines[1:]:
                 line = line.strip()
                 if line.startswith('cpu'):
-                    line = line[3:]   #remove the prefix of cpu
-                    self.cpu_stats.append(line.split(' '))
+                    self.cpu_stats.append(line.split(' ')[1:])
                 elif line.startswith('domain'):
-                    line = line[6:]   #remove the prefix of domain
                     c = line.split(' ')
                     self.domain_mask.append(c[1])
-                    del c[1]          #remove cpu mask
-                    self.cpu_stats[-1].append(c)
+                    self.cpu_stats[-1].append(c[2:])
 
         else:
             raise ValueException("version")
@@ -53,8 +50,12 @@ class SchedStatParser:
         self.decode(lines[1:])
 
 sp = SchedStatParser()
-time.sleep(2)
+time.sleep(1)
 sp1 = SchedStatParser()
 
-print sp1.sub(sp)
+s = sp1.sub(sp)
+
+print 'total cpu: ', len(s)
+for i in s:
+    print i[8]
 
