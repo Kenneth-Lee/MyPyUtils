@@ -15,13 +15,20 @@ def plt_show(filename):
         plt.show()
 
 def plot_data(data, name=None, filename=None):
+    #plot
     plt.xlabel("sequence")
     if name:
         plt.ylabel(name)
+    plt.subplot(211)
     plt.plot(np.arange(0, len(data), 1), data)
     ave=mean(data)
     plt.axhline(ave, 0, len(data), color='r')
     plt.title(name + " sequence (max=%f, min=%f, ave=%f)"%(max(data), min(data), ave))
+
+    #histgram
+    plt.subplot(212)
+    plt.xlabel("distribution")
+    plt.hist(data, 100)
 
     plt_show(filename)
 

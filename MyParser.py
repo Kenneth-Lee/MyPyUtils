@@ -19,9 +19,9 @@ class PingParser(MyParser):
 	return items as a list of time in ms
 	"""
 
-	items=[]
 
 	def __init__(self, filename):
+	        self.items=[]
         	MyParser.__init__(self, filename);
 
 	def parseline(self, line):
@@ -47,9 +47,10 @@ class CsParser(MyParser):
 	the self.cpus return a list of cpus
 	"""
 
-	items=[]
-	cpus=[]
 	def __init__(self, filename):
+                self.items=[]
+                self.cpus=[]
+
 		MyParser.__init__(self, filename);
 		self.cpus.sort()
 
